@@ -14,7 +14,7 @@ let g:loaded_gtrans = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
-command! -nargs=* -range=% -bang
+command! -nargs=* -range -bang
 \   -complete=customlist,gtrans#command#complete
 \   Gtrans
 \   call gtrans#command#command(<q-bang>, [<line1>, <line2>], <q-args>)

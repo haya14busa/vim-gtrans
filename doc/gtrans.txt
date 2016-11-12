@@ -1,0 +1,93 @@
+*gtrans.txt*	Translator using Google Translate in Vim
+
+Author  : haya14busa <hayabusa1419@gmail.com>
+Version : 0.9.0
+License : MIT license {{{
+
+  Copyright (c) 2016 haya14busa
+
+  Permission is hereby granted, free of charge, to any person obtaining
+  a copy of this software and associated documentation files (the
+  "Software"), to deal in the Software without restriction, including
+  without limitation the rights to use, copy, modify, merge, publish,
+  distribute, sublicense, and/or sell copies of the Software, and to
+  permit persons to whom the Software is furnished to do so, subject to
+  the following conditions:
+  The above copyright notice and this permission notice shall be
+  included in all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+  CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+}}}
+
+==============================================================================
+CONTENTS				*gtrans-contents*
+
+INTRODUCTION		|gtrans-introduction|
+INTERFACE		|gtrans-interface|
+	COMMANDS		|gtrans-commands|
+	KEY MAPPINGS		|gtrans-key-mappings|
+OPTIONS			|gtrans-options|
+CHANGELOG		|gtrans-changelog|
+
+==============================================================================
+INTRODUCTION				*gtrans-introduction*
+
+*vim-gtrans* (*gtrans.vim* ) provides utilities which translates text using
+Google Translate (https://translate.google.com/) in Vim.
+
+Requirements:
+- https://github.com/haya14busa/gtrans
+
+If you are looking for Vim plugin which opens Google Translate web page, see
+|open-googletranslate.txt| https://github.com/haya14busa/vim-open-googletranslate
+
+Latest version:
+https://github.com/haya14busa/vim-gtrans
+
+==============================================================================
+INTERFACE				*gtrans-interface*
+------------------------------------------------------------------------------
+COMMANDS				*gtrans-commands*
+
+						*:OpenGoogleTranslate*
+:[range]Gtrans [--help] [--to=TO] [input text]
+	Translate input text using Google Translate. You can specify input
+	text either by optional arguments or visual selection. Otherwise, a
+	current line text will be uses as input text. (It uses current line by
+	default to avoid translating a lot of text unintentionally)
+
+	You can specify target language by --to and specify output by --output
+	(buffer/echo/echom).
+
+------------------------------------------------------------------------------
+KEY MAPPINGS				*gtrans-key-mappings*
+
+<Plug>(operator-gtrans-buffer){motion}	*<Plug>(operator-gtrans-buffer)*
+	Translates text that {motion} moves over and outputs result in a
+	gtranslate buffer.
+
+<Plug>(operator-gtrans-echom){motion}	*<Plug>(operator-gtrans-echom)*
+	Translates text that {motion} moves over and echom result.
+
+==============================================================================
+OPTIONS					*gtrans-options*
+
+						*g:gtrans#buffer_height*
+g:gtrans#buffer_height number (default: same as 'previewheight')
+	Default height for a gtrans buffer window.
+
+==============================================================================
+CHANGELOG				 *gtrans-changelog*
+
+0.9.0	2016-11-12
+  - Init.
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:noet:fen:fdl=0:fdm=marker:
