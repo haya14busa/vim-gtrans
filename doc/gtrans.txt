@@ -43,6 +43,7 @@ INTRODUCTION				*gtrans-introduction*
 Google Translate (https://translate.google.com/) in Vim.
 
 Requirements:
+- Vim 8.0 or later
 - https://github.com/haya14busa/gtrans
 
 If you are looking for Vim plugin which opens Google Translate web page, see
