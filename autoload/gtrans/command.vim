@@ -7,7 +7,7 @@ scriptencoding utf-8
 let s:save_cpo = &cpo
 set cpo&vim
 
-let s:ArgumentParser = vital#opengoogletranslate#import('ArgumentParser')
+let s:ArgumentParser = vital#gtrans#import('ArgumentParser')
 
 function! s:get_parser() abort
   let s:parser = s:ArgumentParser.new({
