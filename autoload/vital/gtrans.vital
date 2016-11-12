@@ -3,3 +3,4 @@ gtrans
 
 System.Process
 Data.String
+Vim.SelectedText
