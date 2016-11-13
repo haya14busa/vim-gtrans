@@ -24,6 +24,11 @@ function! s:get_parser() abort
   \     'choices': ['buffer', 'echo', 'echom'],
   \   }
   \ )
+  call s:parser.add_argument(
+  \   '--interactive', '-i', 'open interactive translation buffers', {
+  \     'type': s:ArgumentParser.types.switch,
+  \   }
+  \ )
   return s:parser
 endfunction
 
@@ -39,14 +44,23 @@ function! gtrans#command#command(...) abort
   endif
   let to = get(options, 'to', '')
   let output = get(options, 'output', '')
+  let interactive = get(options, 'interactive', 0)
   let input = join(options.__unknown__, ' ')
   if input ==# ''
     let [start, end] = [options.__range__[0], options.__range__[1]]
-    let input = join(getline(start, end), "\n")
-    if output ==# ''
-      let output = 'buffer'
+    if !(interactive && start ==# end)
+      let input = join(getline(start, end), "\n")
+      if output ==# ''
+        let output = 'buffer'
+      endif
     endif
   endif
+
+  if interactive
+    call gtrans#interactive(input, to, '')
+    return
+  endif
+
   if output ==# 'buffer'
     call gtrans#buffer(input, to, '')
   else
