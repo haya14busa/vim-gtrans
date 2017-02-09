@@ -57,7 +57,7 @@ INTERFACE				*gtrans-interface*
 ------------------------------------------------------------------------------
 COMMANDS				*gtrans-commands*
 
-						*:OpenGoogleTranslate*
+						*:Gtrans*
 :[range]Gtrans [--help] [--to=TO] [input text]
 	Translate input text using Google Translate. You can specify input
 	text either by optional arguments or visual selection. Otherwise, a
